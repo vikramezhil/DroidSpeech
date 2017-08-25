@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 /**
  * Created by Vikram Ezhil on 29/07/17
@@ -24,7 +22,7 @@ public class DroidSpeechPermissions extends Fragment
     private _DroidSpeechPermissionsListener droidSpeechPermissionsListener;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
@@ -32,7 +30,7 @@ public class DroidSpeechPermissions extends Fragment
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState)
+    public void onActivityCreated(Bundle savedInstanceState)
     {
         try
         {
@@ -70,8 +68,9 @@ public class DroidSpeechPermissions extends Fragment
         }
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
         switch (requestCode)
         {

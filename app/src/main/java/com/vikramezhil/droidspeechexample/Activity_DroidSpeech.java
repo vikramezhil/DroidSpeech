@@ -1,6 +1,6 @@
 package com.vikramezhil.droidspeechexample;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +12,7 @@ import com.vikramezhil.droidspeech.DroidSpeech;
 import com.vikramezhil.droidspeech._DroidSpeechListener;
 import com.vikramezhil.droidspeech._DroidSpeechPermissionsListener;
 
-public class Activity_DroidSpeech extends AppCompatActivity implements OnClickListener, _DroidSpeechListener, _DroidSpeechPermissionsListener
+public class Activity_DroidSpeech extends Activity implements OnClickListener, _DroidSpeechListener, _DroidSpeechPermissionsListener
 {
     private DroidSpeech droidSpeech;
 
@@ -34,13 +34,13 @@ public class Activity_DroidSpeech extends AppCompatActivity implements OnClickLi
         droidSpeech = new DroidSpeech(this, getFragmentManager());
         droidSpeech.setOnDroidSpeechListener(this);
 
-        finalSpeechResult = (TextView) findViewById(R.id.finalSpeechResult);
-        liveInfo = (TextView) findViewById(R.id.liveInfo);
+        finalSpeechResult = findViewById(R.id.finalSpeechResult);
+        liveInfo = findViewById(R.id.liveInfo);
 
-        start = (Button) findViewById(R.id.start);
+        start = findViewById(R.id.start);
         start.setOnClickListener(this);
 
-        stop = (Button) findViewById(R.id.stop);
+        stop = findViewById(R.id.stop);
         stop.setOnClickListener(this);
     }
 
