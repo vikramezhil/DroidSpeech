@@ -26,7 +26,7 @@ Add this to your app build.gradle:
 
 ```
 dependencies {
-    compile 'com.github.vikramezhil:DroidSpeech:1.0.0'
+    compile 'com.github.vikramezhil:DroidSpeech:1.0.1’
 }
 ```
 
