@@ -26,7 +26,7 @@ Add this to your app build.gradle:
 
 ```
 dependencies {
-    compile 'com.github.vikramezhil:DroidSpeech:1.0.1’
+    compile 'com.github.vikramezhil:DroidSpeech:v1.0.1’
 }
 ```
 
@@ -49,7 +49,7 @@ Add the following to the <dependencies> section of your pom.xml:
 <dependency>
     <groupId>com.github.vikramezhil</groupId>
     <artifactId>DroidSpeech</artifactId>
-    <version>1.0.0</version>
+    <version>v1.0.1</version>
 </dependency>
 ```
 
