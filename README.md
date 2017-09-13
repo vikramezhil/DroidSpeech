@@ -26,7 +26,7 @@ Add this to your app build.gradle:
 
 ```
 dependencies {
-    compile 'com.github.vikramezhil:DroidSpeech:v1.0.1’
+    compile 'com.github.vikramezhil:DroidSpeech:v2.0.0’
 }
 ```
 
@@ -49,7 +49,7 @@ Add the following to the <dependencies> section of your pom.xml:
 <dependency>
     <groupId>com.github.vikramezhil</groupId>
     <artifactId>DroidSpeech</artifactId>
-    <version>v1.0.1</version>
+    <version>v2.0.0</version>
 </dependency>
 ```
 
@@ -78,7 +78,7 @@ The speech result will be triggered at <i>onDroidSpeechFinalResult</i>,
 
 ```
 @Override
-public void onDroidSpeechFinalResult(String finalSpeechResult, boolean droidSpeechWillListen)
+public void onDroidSpeechFinalResult(String finalSpeechResult)
 {
   // Do whatever you want with the speech result
 }
