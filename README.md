@@ -8,6 +8,12 @@ Google's default speech recognition library doesn't allow to continuously listen
 
 <b>Droid Speech</b> aims to close this gap and provide unparalleled optimisation of continuous speech recognition without any of the above said issues. It is developed keeping in mind all the loopholes which needs to be blocked to have the speech recognition run seamlessly in an android device.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/12429051/30366818-00ed03e4-988a-11e7-91b5-5f3b3f9ecf45.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/12429051/30367309-8ce75cfe-988b-11e7-8f7d-1802b2e62dd7.png" width="250"/>
+    <img src="https://user-images.githubusercontent.com/12429051/30367444-e859ecc8-988b-11e7-84e2-2cf541cfc978.png" width="250"/>
+</p>
+
 <b><h1>Usage</h1></b>
 <b>Gradle dependency:</b>
 
