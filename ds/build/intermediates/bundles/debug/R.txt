@@ -1,0 +1,7 @@
+int array droid_speech_errors 0x7f030000
+int id recognitionProgressView 0x7f050000
+int layout speech_progress_layout 0x7f020000
+int string app_name 0x7f040000
+int string internet_not_enabled 0x7f040001
+int string microphone_permissions_required 0x7f040002
+int string unknown_error 0x7f040003

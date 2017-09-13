@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <com.vikramezhil.droidspeech.RecognitionProgressView
+        android:id="@+id/recognitionProgressView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/recognitionProgressMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/progressMsgMargin"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/app_name"/>
+</LinearLayout>

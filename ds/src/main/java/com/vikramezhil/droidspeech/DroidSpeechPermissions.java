@@ -19,7 +19,7 @@ public class DroidSpeechPermissions extends Fragment
 {
     private static final int REQUEST_AUDIO_PERMISSIONS = 100;
 
-    private _DroidSpeechPermissionsListener droidSpeechPermissionsListener;
+    private OnDSPermissionsListener droidSpeechPermissionsListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -35,7 +35,7 @@ public class DroidSpeechPermissions extends Fragment
         try
         {
             // Initializing the droid speech permission listener
-            droidSpeechPermissionsListener = (_DroidSpeechPermissionsListener) getActivity();
+            droidSpeechPermissionsListener = (OnDSPermissionsListener) getActivity();
         }
         catch (Exception e)
         {
@@ -81,7 +81,7 @@ public class DroidSpeechPermissions extends Fragment
                     if(result != PackageManager.PERMISSION_GRANTED)
                     {
                         // Audio permission not granted
-                        droidSpeechPermissionsListener.onDroidSpeechAudioPermissionStatus(false, getResources().getString(R.string.microphone_permissions_required));
+                        droidSpeechPermissionsListener.onDroidSpeechAudioPermissionStatus(false, getResources().getString(R.string.ds_mic_permissions_required));
 
                         return;
                     }

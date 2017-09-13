@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">DroidSpeechExample</string>
-    <string name="live_speech_result">Live Speech Result:</string>
     <string name="final_speech_result">Final Speech Result:</string>
     <string name="no_data">---</string>
-    <string name="listening">Listening…</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
 </resources>

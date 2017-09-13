@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9c96e427f655039e460089f7a175fa0f522c8c2f">
+        <dex dex="/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/build/intermediates/pre-dexed/debug/classes_ee5f584984ea285ca9391947e69ea58414084f18.jar" />
+    </item>
+
+</items>

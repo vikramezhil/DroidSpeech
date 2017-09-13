@@ -1,7 +1,12 @@
 package com.vikramezhil.droidspeech;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +16,10 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.app.FragmentManager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 
 /**
  * Created by Vikram Ezhil on 29/07/17
@@ -25,24 +34,18 @@ public class DroidSpeech implements RecognitionListener
     private final String TAG = "DroidSpeech";
 
     private Context context;
-
+    private AlertDialog speechProgressAlertDialog;
+    private RecognitionProgressView recognitionProgressView;
+    private TextView recognitionProgressMsg;
     private DroidSpeechPermissions droidSpeechPermissions;
-
     private SpeechRecognizer droidSpeechRecognizer;
-
     private Intent speechIntent;
-
     private AudioManager audioManager;
-
     private Handler restartDroidSpeech = new Handler();
-
     private Handler droidSpeechPartialResult = new Handler();
-
     private long startListeningTime, pauseAndSpeakTime;
-
-    private boolean continuousVoiceRecognition = true, onReadyForSpeech = false, speechResultFound = false;
-
-    private _DroidSpeechListener droidSpeechListener;
+    private boolean continuousVoiceRecognition = true, showRecognitionProgressView = false, onReadyForSpeech = false, speechResultFound = false, closedByUser = false;
+    private OnDSListener droidSpeechListener;
 
     // MARK: Constructor
 
@@ -67,6 +70,9 @@ public class DroidSpeech implements RecognitionListener
 
         // Initializing the droid speech properties
         initDroidSpeechProperties();
+
+        // Initializing the recognition progress view
+        initRecognitionProgressView();
     }
 
     // MARK: Droid Speech Listener
@@ -76,7 +82,7 @@ public class DroidSpeech implements RecognitionListener
      *
      * @param droidSpeechListener The class instance to initialize droid speech listener
      */
-    public void setOnDroidSpeechListener(_DroidSpeechListener droidSpeechListener)
+    public void setOnDroidSpeechListener(OnDSListener droidSpeechListener)
     {
         this.droidSpeechListener = droidSpeechListener;
     }
@@ -96,10 +102,77 @@ public class DroidSpeech implements RecognitionListener
         speechIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         speechIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, context.getPackageName());
         speechIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
-        speechIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, ExtensionDroidSpeech.MAX_VOICE_RESULTS);
+        speechIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, Extensions.MAX_VOICE_RESULTS);
 
         // Initializing the audio Manager
         audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+    }
+
+    /**
+     * Initializes the recognition progress view
+     */
+    @SuppressWarnings("ConstantConditions")
+    private void initRecognitionProgressView()
+    {
+        if(speechProgressAlertDialog == null)
+        {
+            try
+            {
+                // Initializing speech progress builder
+                AlertDialog.Builder speechProgressBuilder = new AlertDialog.Builder(context);
+                LayoutInflater layoutInflater = LayoutInflater.from(context);
+                @SuppressLint("InflateParams") View speechProgressView = layoutInflater.inflate(R.layout.speech_progress_layout, null);
+                speechProgressBuilder.setView(speechProgressView);
+
+                recognitionProgressView = speechProgressView.findViewById(R.id.recognitionProgressView);
+                recognitionProgressView.setColors(Extensions.PV_COLORS);
+                recognitionProgressView.setBarMaxHeightsInDp(Extensions.PV_BARS_HEIGHT);
+                recognitionProgressView.setCircleRadiusInDp(Extensions.PV_CIRCLE_RADIUS);
+                recognitionProgressView.setSpacingInDp(Extensions.PV_CIRCLE_SPACING);
+                recognitionProgressView.setIdleStateAmplitudeInDp(Extensions.PV_IDLE_STATE);
+                recognitionProgressView.setRotationRadiusInDp(Extensions.PV_ROTATION_RADIUS);
+                recognitionProgressView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, Extensions.PV_HEIGHT));
+
+                recognitionProgressMsg = speechProgressView.findViewById(R.id.recognitionProgressMsg);
+
+                speechProgressAlertDialog = speechProgressBuilder.create();
+                speechProgressAlertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                speechProgressAlertDialog.setCancelable(true);
+
+                speechProgressAlertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+
+                        closedByUser = true;
+
+                        // Closing droid speech operations
+                        closeDroidSpeechOperations();
+
+                        if(droidSpeechListener != null)
+                        {
+                            // Sending an update that the droid speech was closed by user
+                            droidSpeechListener.onDroidSpeechClosedByUser();
+                        }
+                        else
+                        {
+                            Log.i(TAG, "Droid speech closed");
+                        }
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                if(droidSpeechListener == null)
+                {
+                    Log.e(TAG, context.getResources().getString(R.string.ds_progress_layout_error));
+                }
+                else
+                {
+                    // Sending an update that there was an error
+                    droidSpeechListener.onDroidSpeechError(context.getResources().getString(R.string.ds_progress_layout_error));
+                }
+            }
+        }
     }
 
     /**
@@ -123,16 +196,86 @@ public class DroidSpeech implements RecognitionListener
     }
 
     /**
+     * Sets the show recognition progress view status
+     *
+     * @param showRecognitionProgressView The show recognition progress view status
+     */
+    public void setShowRecognitionProgressView(boolean showRecognitionProgressView)
+    {
+        this.showRecognitionProgressView = showRecognitionProgressView;
+    }
+
+    /**
+     * Sets the recognition progress view colors
+     * Note: Should be of length 5
+     *
+     * @param colors The recognition progress view colors
+     */
+    public void setRecognitionProgressViewColors(int[] colors)
+    {
+        if(recognitionProgressView != null)
+        {
+            recognitionProgressView.setColors(colors);
+        }
+    }
+
+    /**
+     * Sets the recognition progress message
+     *
+     * @param msg The recognition progress message
+     */
+    private void setRecognitionProgressMsg(String msg)
+    {
+        if(recognitionProgressMsg != null && msg != null)
+        {
+            recognitionProgressMsg.setText(msg);
+        }
+    }
+
+    /**
+     * Sets the recognition progress message visibility
+     *
+     * @param visible The recognition progress message visibility status
+     */
+    private void setRecongitionProgressMsgVisibility(boolean visible)
+    {
+        if(recognitionProgressMsg != null)
+        {
+            recognitionProgressMsg.setVisibility(visible ? View.VISIBLE : View.GONE);
+        }
+    }
+
+    /**
+     * Sets the recognition progress message color
+     *
+     * @param color The recognition progress message color
+     */
+    public void setRecognitionProgressMsgColor(int color)
+    {
+        if(recognitionProgressMsg != null)
+        {
+            recognitionProgressMsg.setTextColor(color);
+        }
+    }
+
+    /**
      * Starts the droid speech recognition
      *
      * Trigger Listeners - onDroidSpeechError(int errorType)
      */
     public void startDroidSpeechRecognition()
     {
-        if(ExtensionDroidSpeech.isInternetEnabled(context))
+        closedByUser = false;
+
+        if(Extensions.isInternetEnabled(context))
         {
             if(droidSpeechPermissions == null || droidSpeechPermissions.checkForAudioPermissions(context))
             {
+                playRecognitionProgressView(true);
+
+                // Setting the progress message to listening
+                setRecognitionProgressMsg(context.getResources().getString(R.string.ds_listening));
+
                 startListeningTime = System.currentTimeMillis();
                 pauseAndSpeakTime = startListeningTime;
                 speechResultFound = false;
@@ -160,14 +303,16 @@ public class DroidSpeech implements RecognitionListener
         }
         else
         {
+            playRecognitionProgressView(false);
+
             if(droidSpeechListener == null)
             {
-                Log.e(TAG, context.getResources().getString(R.string.internet_not_enabled));
+                Log.e(TAG, context.getResources().getString(R.string.ds_internet_not_enabled));
             }
             else
             {
                 // Sending an update that there was a network error
-                droidSpeechListener.onDroidSpeechError(context.getResources().getString(R.string.internet_not_enabled));
+                droidSpeechListener.onDroidSpeechError(context.getResources().getString(R.string.ds_internet_not_enabled));
             }
         }
     }
@@ -180,12 +325,22 @@ public class DroidSpeech implements RecognitionListener
         restartDroidSpeech.postDelayed(new Runnable() {
 
             @Override
-            public void run() {
+            public void run()
+            {
+                if(closedByUser)
+                {
+                    closedByUser = false;
 
-                startDroidSpeechRecognition();
+                    // If audio beep was muted, enabling it again
+                    muteAudio(false);
+                }
+                else
+                {
+                    startDroidSpeechRecognition();
+                }
             }
 
-        }, ExtensionDroidSpeech.MAX_PAUSE_TIME);
+        }, Extensions.MAX_PAUSE_TIME);
     }
 
     /**
@@ -202,7 +357,7 @@ public class DroidSpeech implements RecognitionListener
     /**
      * Closes the droid speech operations
      */
-    public void closeDroidSpeechOperations()
+    private void closeDroidSpeech()
     {
         if (droidSpeechRecognizer != null)
         {
@@ -214,6 +369,47 @@ public class DroidSpeech implements RecognitionListener
 
         // If audio beep was muted, enabling it again
         muteAudio(false);
+    }
+
+    /**
+     * Closes the entire droid speech operations
+     */
+    public void closeDroidSpeechOperations()
+    {
+        playRecognitionProgressView(false);
+
+        setRecognitionProgressMsg("");
+
+        closeDroidSpeech();
+    }
+
+    /**
+     * Plays or Stops the recognition progress view
+     *
+     * @param play The play recognition progress view status
+     */
+    private void playRecognitionProgressView(boolean play)
+    {
+        if(speechProgressAlertDialog == null || recognitionProgressView == null) return;
+
+        if(showRecognitionProgressView)
+        {
+            if(play)
+            {
+                recognitionProgressView.play();
+                speechProgressAlertDialog.show();
+            }
+            else
+            {
+                recognitionProgressView.stop();
+                speechProgressAlertDialog.cancel();
+            }
+        }
+        else if(speechProgressAlertDialog.isShowing())
+        {
+            recognitionProgressView.stop();
+            speechProgressAlertDialog.cancel();
+        }
     }
 
     /**
@@ -272,6 +468,11 @@ public class DroidSpeech implements RecognitionListener
     @Override
     public void onRmsChanged(float rmsdB)
     {
+        if(showRecognitionProgressView && speechProgressAlertDialog != null && recognitionProgressView != null)
+        {
+            recognitionProgressView.rmsValue(rmsdB);
+        }
+
         if(droidSpeechListener != null)
         {
             // Sending an update with the rms changed value
@@ -294,12 +495,19 @@ public class DroidSpeech implements RecognitionListener
     @Override
     public void onError(int error)
     {
+        if(closedByUser)
+        {
+            closedByUser = false;
+
+            return;
+        }
+
         long duration = System.currentTimeMillis() - startListeningTime;
 
         // If duration is less than the "error timeout" as the system didn't try listening to the user voice so ignoring
-        if(duration < ExtensionDroidSpeech.ERROR_TIMEOUT && error == SpeechRecognizer.ERROR_NO_MATCH && !onReadyForSpeech) return;
+        if(duration < Extensions.ERROR_TIMEOUT && error == SpeechRecognizer.ERROR_NO_MATCH && !onReadyForSpeech) return;
 
-        if (onReadyForSpeech && duration < ExtensionDroidSpeech.AUDIO_BEEP_DISABLED_TIMEOUT)
+        if (onReadyForSpeech && duration < Extensions.AUDIO_BEEP_DISABLED_TIMEOUT)
         {
             // Disabling audio beep if less than "audio beep disabled timeout", as it will be
             // irritating for the user to hear the beep sound again and again
@@ -330,7 +538,7 @@ public class DroidSpeech implements RecognitionListener
             else
             {
                 // Sending an update that there was an unknown error
-                droidSpeechListener.onDroidSpeechError(context.getResources().getString(R.string.unknown_error));
+                droidSpeechListener.onDroidSpeechError(context.getResources().getString(R.string.ds_unknown_error));
             }
         }
     }
@@ -363,12 +571,17 @@ public class DroidSpeech implements RecognitionListener
             else
             {
                 // Sending an update with the droid speech final result
-                droidSpeechListener.onDroidSpeechFinalResult(droidSpeechFinalResult, continuousVoiceRecognition);
+                droidSpeechListener.onDroidSpeechFinalResult(droidSpeechFinalResult);
 
                 if(continuousVoiceRecognition)
                 {
                     // Start droid speech recognition again
                     startDroidSpeechRecognition();
+                }
+                else
+                {
+                    // Closing the droid speech operations
+                    closeDroidSpeechOperations();
                 }
             }
         }
@@ -400,11 +613,14 @@ public class DroidSpeech implements RecognitionListener
             }
             else
             {
+                // Setting the progress message
+                setRecognitionProgressMsg(droidLiveSpeechResult);
+
                 // Sending an update with the droid speech live result
                 droidSpeechListener.onDroidSpeechLiveResult(droidLiveSpeechResult);
             }
 
-            if((System.currentTimeMillis() - pauseAndSpeakTime) > ExtensionDroidSpeech.MAX_PAUSE_TIME)
+            if((System.currentTimeMillis() - pauseAndSpeakTime) > Extensions.MAX_PAUSE_TIME)
             {
                 speechResultFound = true;
 
@@ -414,7 +630,7 @@ public class DroidSpeech implements RecognitionListener
                     public void run() {
 
                         // Closing droid speech operations
-                        closeDroidSpeechOperations();
+                        closeDroidSpeech();
 
                         if(droidSpeechListener == null)
                         {
@@ -424,17 +640,22 @@ public class DroidSpeech implements RecognitionListener
                         {
                             // Sending an update with the droid speech final result (Partial live result
                             // is taken as the final result in this case)
-                            droidSpeechListener.onDroidSpeechFinalResult(droidLiveSpeechResult, continuousVoiceRecognition);
+                            droidSpeechListener.onDroidSpeechFinalResult(droidLiveSpeechResult);
 
                             if(continuousVoiceRecognition)
                             {
                                 // Start droid speech recognition again
                                 startDroidSpeechRecognition();
                             }
+                            else
+                            {
+                                // Closing the droid speech operations
+                                closeDroidSpeechOperations();
+                            }
                         }
                     }
 
-                }, ExtensionDroidSpeech.PARTIAL_DELAY_TIME);
+                }, Extensions.PARTIAL_DELAY_TIME);
             }
             else
             {

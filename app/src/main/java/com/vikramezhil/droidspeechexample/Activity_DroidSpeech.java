@@ -1,7 +1,9 @@
 package com.vikramezhil.droidspeechexample;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -9,18 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vikramezhil.droidspeech.DroidSpeech;
-import com.vikramezhil.droidspeech._DroidSpeechListener;
-import com.vikramezhil.droidspeech._DroidSpeechPermissionsListener;
+import com.vikramezhil.droidspeech.OnDSListener;
+import com.vikramezhil.droidspeech.OnDSPermissionsListener;
 
-public class Activity_DroidSpeech extends Activity implements OnClickListener, _DroidSpeechListener, _DroidSpeechPermissionsListener
+import java.util.Random;
+
+public class Activity_DroidSpeech extends Activity implements OnClickListener, OnDSListener, OnDSPermissionsListener
 {
+    public final String TAG = "Activity_DroidSpeech";
+
     private DroidSpeech droidSpeech;
-
-    private TextView finalSpeechResult, liveInfo;
-
+    private TextView finalSpeechResult;
     private Button start, stop;
 
-    // MARK: Activity methods
+    // MARK: Activity Methods
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,9 +37,10 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, _
         // Initializing the droid speech and setting the listener
         droidSpeech = new DroidSpeech(this, getFragmentManager());
         droidSpeech.setOnDroidSpeechListener(this);
+        droidSpeech.setShowRecognitionProgressView(true);
+        droidSpeech.setRecognitionProgressMsgColor(Color.WHITE);
 
         finalSpeechResult = findViewById(R.id.finalSpeechResult);
-        liveInfo = findViewById(R.id.liveInfo);
 
         start = findViewById(R.id.start);
         start.setOnClickListener(this);
@@ -66,7 +71,7 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, _
         super.onDestroy();
     }
 
-    // MARK: OnClickListener method
+    // MARK: OnClickListener Method
 
     @Override
     public void onClick(View view)
@@ -79,7 +84,6 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, _
                 droidSpeech.startDroidSpeechRecognition();
 
                 // Setting the view visibilities when droid speech is running
-                liveInfo.setVisibility(View.VISIBLE);
                 start.setVisibility(View.GONE);
                 stop.setVisibility(View.VISIBLE);
 
@@ -90,10 +94,6 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, _
                 // Closing droid speech
                 droidSpeech.closeDroidSpeechOperations();
 
-                // Setting the views back to default
-                liveInfo.setText(getResources().getString(R.string.listening));
-
-                liveInfo.setVisibility(View.GONE);
                 stop.setVisibility(View.GONE);
                 start.setVisibility(View.VISIBLE);
 
@@ -101,44 +101,46 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, _
         }
     }
 
-    // MARK: DroidSpeechListener methods
+    // MARK: DroidSpeechListener Methods
 
     @Override
     public void onDroidSpeechRmsChanged(float rmsChangedValue)
     {
-        // Log.wtf("Rms changed value = ", "" + rmsChangedValue);
+        // Log.i(TAG, "Rms change value = " + rmsChangedValue);
     }
 
     @Override
     public void onDroidSpeechLiveResult(String liveSpeechResult)
     {
-        // Setting the live speech result
-        liveInfo.setText(liveInfo.getText().toString().contains(getResources().getString(R.string.listening)) ? liveSpeechResult : liveInfo.getText() + " , " + liveSpeechResult);
+        Log.i(TAG, "Live speech result = " + liveSpeechResult);
     }
 
     @Override
-    public void onDroidSpeechFinalResult(String finalSpeechResult, boolean droidSpeechWillListen)
+    public void onDroidSpeechFinalResult(String finalSpeechResult)
     {
         // Setting the final speech result
         this.finalSpeechResult.setText(finalSpeechResult);
 
-        if(droidSpeechWillListen)
+        if(droidSpeech.getContinuousVoiceRecognition())
         {
-            // Setting the live info back to listening
-            liveInfo.setText(getResources().getString(R.string.listening));
+            int[] colorPallets1 = new int[] {Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA};
+            int[] colorPallets2 = new int[] {Color.YELLOW, Color.RED, Color.CYAN, Color.BLUE, Color.GREEN};
+
+            // Setting random color pallets to the recognition progress view
+            droidSpeech.setRecognitionProgressViewColors(new Random().nextInt(2) == 0 ? colorPallets1 : colorPallets2);
         }
         else
         {
-            stop.post(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    // Stop listening
-                    stop.performClick();
-                }
-            });
+            stop.setVisibility(View.GONE);
+            start.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onDroidSpeechClosedByUser()
+    {
+        stop.setVisibility(View.GONE);
+        start.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -158,7 +160,7 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, _
         });
     }
 
-    // MARK: DroidSpeechPermissionsListener method
+    // MARK: DroidSpeechPermissionsListener Method
 
     @Override
     public void onDroidSpeechAudioPermissionStatus(boolean audioPermissionGiven, String errorMsgIfAny)

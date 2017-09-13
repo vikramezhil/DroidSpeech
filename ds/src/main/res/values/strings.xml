@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">DroidSpeech</string>
-
-    <string name="internet_not_enabled">Internet is not enabled</string>
-    <string name="microphone_permissions_required">Please provide microphone permissions</string>
-    <string name="unknown_error">Unknown error</string>
+    <string name="ds_listening">Listening…</string>
+    <string name="ds_internet_not_enabled">Internet is not enabled</string>
+    <string name="ds_mic_permissions_required">Please provide microphone permissions</string>
+    <string name="ds_unknown_error">Unknown error</string>
+    <string name="ds_progress_layout_error">Unable to add speech progress view</string>
     <string-array name="droid_speech_errors">
         <!--ERROR_NETWORK_TIMEOUT = 1-->
         <!--ERROR_NETWORK = 2-->

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/build/intermediates/res/merged/debug/layout/speech_progress_layout.xml",
+        "source": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/res/layout/speech_progress_layout.xml"
+    },
+    {
+        "merged": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/build/intermediates/res/merged/debug/layout/activity_droid_speech.xml",
+        "source": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/src/main/res/layout/activity_droid_speech.xml"
+    }
+]
