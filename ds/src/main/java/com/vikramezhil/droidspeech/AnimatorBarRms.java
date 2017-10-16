@@ -8,8 +8,6 @@ import java.util.Random;
 /**
  * Created by Vikram Ezhil on 12/09/17
  *
- * Email: vikram.ezhil.1988@gmail.com
- *
  * AnimatorBarRms
  */
 

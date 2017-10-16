@@ -9,13 +9,11 @@ import java.util.List;
 /**
  * Created by Vikram Ezhil on 12/09/17
  *
- * Email: vikram.ezhil.1988@gmail.com
- *
  * AnimatorRotating
  */
 
-class AnimatorRotating implements OnBarParamsAnimListener {
-
+class AnimatorRotating implements OnBarParamsAnimListener
+{
     private static final long DURATION = 2000;
     private static final long ACCELERATE_ROTATION_DURATION = 1000;
     private static final long DECELERATE_ROTATION_DURATION = 1000;

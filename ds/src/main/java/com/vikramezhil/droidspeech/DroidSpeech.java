@@ -24,8 +24,6 @@ import android.widget.TextView;
 /**
  * Created by Vikram Ezhil on 29/07/17
  *
- * Email: vikram.ezhil.1988@gmail.com
- *
  * Droid Speech
  */
 

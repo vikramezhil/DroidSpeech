@@ -13,8 +13,6 @@ import java.util.List;
 /**
  * Created by Vikram Ezhil on 12/09/17
  *
- * Email: vikram.ezhil.1988@gmail.com
- *
  * Recognition Progress View
  */
 

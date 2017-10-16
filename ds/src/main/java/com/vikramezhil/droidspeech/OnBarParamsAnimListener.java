@@ -3,8 +3,6 @@ package com.vikramezhil.droidspeech;
 /**
  * Created by Vikram Ezhil on 12/09/17
  *
- * Email: vikram.ezhil.1988@gmail.com
- *
  * Bar Animation Listener
  */
 
