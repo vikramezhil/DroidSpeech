@@ -40,7 +40,7 @@ dependencies {
 
 Add the following to the <repositories> section of your pom.xml:
 
-```java
+```xml
 <repositories>
   <repository>
       <id>jitpack.io</id>
@@ -51,7 +51,7 @@ Add the following to the <repositories> section of your pom.xml:
 
 Add the following to the <dependencies> section of your pom.xml:
 
-```java
+```xml
 <dependency>
     <groupId>com.github.vikramezhil</groupId>
     <artifactId>DroidSpeech</artifactId>
