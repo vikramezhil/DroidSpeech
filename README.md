@@ -69,18 +69,18 @@ In your activity, initialize the droid speech class and set the droid speech lis
 DroidSpeech droidSpeech = new DroidSpeech(this, null);
 droidSpeech.setOnDroidSpeechListener(this);
 ```
-To start droid speech to listen to user voice call the method <i>startDroidSpeechRecognition()</i>,
+To start droid speech to listen to user voice call the method `startDroidSpeechRecognition()`,
 
 ```java
 droidSpeech.startDroidSpeechRecognition();
 ```
-To close droid speech operations call the method <i>closeDroidSpeechOperations()</i>,
+To close droid speech operations call the method `closeDroidSpeechOperations()`,
 
 ```java
 droidSpeech.closeDroidSpeechOperations();
 ```
 
-The speech result will be triggered at <i>onDroidSpeechFinalResult</i>,
+The speech result will be triggered at `onDroidSpeechFinalResult`,
 
 ```java
 @Override
