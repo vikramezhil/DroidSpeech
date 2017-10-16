@@ -19,7 +19,7 @@ Google's default speech recognition library doesn't allow to continuously listen
 
 Add the following to your project level build.gradle:
 
-```
+```java
 allprojects {
   repositories {
     ...
@@ -30,7 +30,7 @@ allprojects {
 
 Add this to your app build.gradle:
 
-```
+```java
 dependencies {
     compile 'com.github.vikramezhil:DroidSpeech:v2.0.0’
 }
@@ -40,7 +40,7 @@ dependencies {
 
 Add the following to the <repositories> section of your pom.xml:
 
-```
+```java
 <repositories>
   <repository>
       <id>jitpack.io</id>
@@ -51,7 +51,7 @@ Add the following to the <repositories> section of your pom.xml:
 
 Add the following to the <dependencies> section of your pom.xml:
 
-```
+```java
 <dependency>
     <groupId>com.github.vikramezhil</groupId>
     <artifactId>DroidSpeech</artifactId>
@@ -65,24 +65,24 @@ For a detailed documentation 📔, please have a look at the [Wiki](https://gith
 
 In your activity, initialize the droid speech class and set the droid speech listener
 
-```
+```java
 DroidSpeech droidSpeech = new DroidSpeech(this, null);
 droidSpeech.setOnDroidSpeechListener(this);
 ```
 To start droid speech to listen to user voice call the method <i>startDroidSpeechRecognition()</i>,
 
-```
+```java
 droidSpeech.startDroidSpeechRecognition();
 ```
 To close droid speech operations call the method <i>closeDroidSpeechOperations()</i>,
 
-```
+```java
 droidSpeech.closeDroidSpeechOperations();
 ```
 
 The speech result will be triggered at <i>onDroidSpeechFinalResult</i>,
 
-```
+```java
 @Override
 public void onDroidSpeechFinalResult(String finalSpeechResult)
 {
