@@ -5,6 +5,14 @@ import android.view.animation.DecelerateInterpolator;
 
 import java.util.Random;
 
+/**
+ * Created by Vikram Ezhil on 12/09/17
+ *
+ * Email: vikram.ezhil.1988@gmail.com
+ *
+ * AnimatorBarRms
+ */
+
 class AnimatorBarRms implements OnBarParamsAnimListener
 {
     private static final float QUIT_RMSDB_MAX = 2f;

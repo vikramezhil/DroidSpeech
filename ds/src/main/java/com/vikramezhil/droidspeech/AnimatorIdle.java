@@ -2,6 +2,14 @@ package com.vikramezhil.droidspeech;
 
 import java.util.List;
 
+/**
+ * Created by Vikram Ezhil on 12/09/17
+ *
+ * Email: vikram.ezhil.1988@gmail.com
+ *
+ * AnimatorIdle
+ */
+
 class AnimatorIdle implements OnBarParamsAnimListener
 {
     private static final long IDLE_DURATION = 1500;

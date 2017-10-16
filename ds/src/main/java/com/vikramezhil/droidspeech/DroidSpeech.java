@@ -44,7 +44,7 @@ public class DroidSpeech implements RecognitionListener
     private Handler restartDroidSpeech = new Handler();
     private Handler droidSpeechPartialResult = new Handler();
     private long startListeningTime, pauseAndSpeakTime;
-    private boolean continuousVoiceRecognition = true, showRecognitionProgressView = false, onReadyForSpeech = false, speechResultFound = false, closedByUser = false;
+    private boolean continuousSpeechRecognition = true, showRecognitionProgressView = false, onReadyForSpeech = false, speechResultFound = false, closedByUser = false;
     private OnDSListener droidSpeechListener;
 
     // MARK: Constructor
@@ -176,23 +176,23 @@ public class DroidSpeech implements RecognitionListener
     }
 
     /**
-     * Gets the continuous voice recognition status
+     * Gets the continuous speech recognition status
      *
-     * @return The continuous voice recognition status
+     * @return The continuous speech recognition status
      */
-    public boolean getContinuousVoiceRecognition()
+    public boolean getContinuousSpeechRecognition()
     {
-        return continuousVoiceRecognition;
+        return continuousSpeechRecognition;
     }
 
     /**
-     * Sets the continuous voice recognition status
+     * Sets the continuous speech recognition status
      *
-     * @param continuousVoiceRecognition The continuous voice recognition status
+     * @param continuousSpeechRecognition The continuous speech recognition status
      */
-    public void setContinuousVoiceRecognition(boolean continuousVoiceRecognition)
+    public void setContinuousSpeechRecognition(boolean continuousSpeechRecognition)
     {
-        this.continuousVoiceRecognition = continuousVoiceRecognition;
+        this.continuousSpeechRecognition = continuousSpeechRecognition;
     }
 
     /**
@@ -235,9 +235,11 @@ public class DroidSpeech implements RecognitionListener
     /**
      * Sets the recognition progress message visibility
      *
+     * NOTE: Default is true
+     *
      * @param visible The recognition progress message visibility status
      */
-    private void setRecongitionProgressMsgVisibility(boolean visible)
+    private void setRecognitionProgressMsgVisibility(boolean visible)
     {
         if(recognitionProgressMsg != null)
         {
@@ -504,7 +506,7 @@ public class DroidSpeech implements RecognitionListener
 
         long duration = System.currentTimeMillis() - startListeningTime;
 
-        // If duration is less than the "error timeout" as the system didn't try listening to the user voice so ignoring
+        // If duration is less than the "error timeout" as the system didn't try listening to the user speech so ignoring
         if(duration < Extensions.ERROR_TIMEOUT && error == SpeechRecognizer.ERROR_NO_MATCH && !onReadyForSpeech) return;
 
         if (onReadyForSpeech && duration < Extensions.AUDIO_BEEP_DISABLED_TIMEOUT)
@@ -573,7 +575,7 @@ public class DroidSpeech implements RecognitionListener
                 // Sending an update with the droid speech final result
                 droidSpeechListener.onDroidSpeechFinalResult(droidSpeechFinalResult);
 
-                if(continuousVoiceRecognition)
+                if(continuousSpeechRecognition)
                 {
                     // Start droid speech recognition again
                     startDroidSpeechRecognition();
@@ -642,7 +644,7 @@ public class DroidSpeech implements RecognitionListener
                             // is taken as the final result in this case)
                             droidSpeechListener.onDroidSpeechFinalResult(droidLiveSpeechResult);
 
-                            if(continuousVoiceRecognition)
+                            if(continuousSpeechRecognition)
                             {
                                 // Start droid speech recognition again
                                 startDroidSpeechRecognition();

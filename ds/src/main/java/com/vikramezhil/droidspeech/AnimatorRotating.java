@@ -6,6 +6,14 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Vikram Ezhil on 12/09/17
+ *
+ * Email: vikram.ezhil.1988@gmail.com
+ *
+ * AnimatorRotating
+ */
+
 class AnimatorRotating implements OnBarParamsAnimListener {
 
     private static final long DURATION = 2000;

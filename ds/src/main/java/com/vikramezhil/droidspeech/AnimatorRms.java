@@ -3,6 +3,14 @@ package com.vikramezhil.droidspeech;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Vikram Ezhil on 12/09/17
+ *
+ * Email: vikram.ezhil.1988@gmail.com
+ *
+ * AnimatorRms
+ */
+
 class AnimatorRms implements OnBarParamsAnimListener
 {
     final private List<AnimatorBarRms> barAnimators;

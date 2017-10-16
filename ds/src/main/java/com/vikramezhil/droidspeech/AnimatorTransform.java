@@ -5,6 +5,14 @@ import android.graphics.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Vikram Ezhil on 12/09/17
+ *
+ * Email: vikram.ezhil.1988@gmail.com
+ *
+ * AnimatorTransform
+ */
+
 class AnimatorTransform implements OnBarParamsAnimListener
 {
     private static final long DURATION = 300;

@@ -32,6 +32,8 @@ public class DroidSpeechPermissions extends Fragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
+        super.onActivityCreated(savedInstanceState);
+
         try
         {
             // Initializing the droid speech permission listener
@@ -41,8 +43,6 @@ public class DroidSpeechPermissions extends Fragment
         {
             e.printStackTrace();
         }
-
-        super.onActivityCreated(savedInstanceState);
     }
 
     /**
@@ -72,6 +72,8 @@ public class DroidSpeechPermissions extends Fragment
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         switch (requestCode)
         {
             case REQUEST_AUDIO_PERMISSIONS:
@@ -92,7 +94,5 @@ public class DroidSpeechPermissions extends Fragment
 
                 break;
         }
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

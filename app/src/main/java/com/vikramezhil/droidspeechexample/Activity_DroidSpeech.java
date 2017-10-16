@@ -52,23 +52,23 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
     @Override
     protected void onPause()
     {
+        super.onPause();
+
         if(stop.getVisibility() == View.VISIBLE)
         {
             stop.performClick();
         }
-
-        super.onPause();
     }
 
     @Override
     protected void onDestroy()
     {
+        super.onDestroy();
+
         if(stop.getVisibility() == View.VISIBLE)
         {
             stop.performClick();
         }
-
-        super.onDestroy();
     }
 
     // MARK: OnClickListener Method
@@ -121,7 +121,7 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
         // Setting the final speech result
         this.finalSpeechResult.setText(finalSpeechResult);
 
-        if(droidSpeech.getContinuousVoiceRecognition())
+        if(droidSpeech.getContinuousSpeechRecognition())
         {
             int[] colorPallets1 = new int[] {Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA};
             int[] colorPallets2 = new int[] {Color.YELLOW, Color.RED, Color.CYAN, Color.BLUE, Color.GREEN};
