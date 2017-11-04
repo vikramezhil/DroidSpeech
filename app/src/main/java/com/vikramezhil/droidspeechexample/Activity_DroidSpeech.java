@@ -14,6 +14,7 @@ import com.vikramezhil.droidspeech.DroidSpeech;
 import com.vikramezhil.droidspeech.OnDSListener;
 import com.vikramezhil.droidspeech.OnDSPermissionsListener;
 
+import java.util.List;
 import java.util.Random;
 
 public class Activity_DroidSpeech extends Activity implements OnClickListener, OnDSListener, OnDSPermissionsListener
@@ -34,13 +35,13 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
         // Setting the layout
         setContentView(R.layout.activity_droid_speech);
 
+        finalSpeechResult = findViewById(R.id.finalSpeechResult);
+
         // Initializing the droid speech and setting the listener
         droidSpeech = new DroidSpeech(this, getFragmentManager());
         droidSpeech.setOnDroidSpeechListener(this);
         droidSpeech.setShowRecognitionProgressView(true);
         droidSpeech.setRecognitionProgressMsgColor(Color.WHITE);
-
-        finalSpeechResult = findViewById(R.id.finalSpeechResult);
 
         start = findViewById(R.id.start);
         start.setOnClickListener(this);
@@ -102,6 +103,19 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
     }
 
     // MARK: DroidSpeechListener Methods
+
+    @Override
+    public void onDroidSpeechSupportedLanguages(String currentSpeechLanguage, List<String> supportedSpeechLanguages)
+    {
+        Log.i(TAG, "Current speech language = " + currentSpeechLanguage);
+        Log.i(TAG, "Supported speech languages = " + supportedSpeechLanguages.toString());
+
+        if(supportedSpeechLanguages.contains("fr-FR"))
+        {
+            // Setting the droid speech preferred language as tamil if found
+            droidSpeech.setPreferredLanguage("fr-FR");
+        }
+    }
 
     @Override
     public void onDroidSpeechRmsChanged(float rmsChangedValue)

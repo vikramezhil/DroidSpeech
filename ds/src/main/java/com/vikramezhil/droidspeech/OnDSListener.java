@@ -1,5 +1,7 @@
 package com.vikramezhil.droidspeech;
 
+import java.util.List;
+
 /**
  * Created by Vikram Ezhil on 29/07/17
  *
@@ -8,6 +10,15 @@ package com.vikramezhil.droidspeech;
 
 public interface OnDSListener
 {
+    /**
+     * The droid speech supported languages
+     *
+     * @param currentSpeechLanguage The current speech language
+     *
+     * @param supportedSpeechLanguages The supported speech languages
+     */
+    void onDroidSpeechSupportedLanguages(String currentSpeechLanguage, List<String> supportedSpeechLanguages);
+
     /**
      * The droid speech rms changed result
      *

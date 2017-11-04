@@ -51,7 +51,14 @@
                     "endOffset": 877
                 },
                 "from": {
-                    "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 833,
+                        "endColumn": 48,
+                        "endOffset": 877
+                    }
                 }
             },
             {
