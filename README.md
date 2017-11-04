@@ -1,5 +1,5 @@
 # DroidSpeech
-Android library for continuous speech recognition.
+Android library for continuous speech recognition with localizations.
 
 <b>Supports from Android SDK version 16 and above</b>.
 
@@ -11,7 +11,10 @@ Google's default speech recognition library doesn't allow to continuously listen
 <p align="center">
   <img src="https://user-images.githubusercontent.com/12429051/30366818-00ed03e4-988a-11e7-91b5-5f3b3f9ecf45.png" width="250"/>
   <img src="https://user-images.githubusercontent.com/12429051/30367309-8ce75cfe-988b-11e7-8f7d-1802b2e62dd7.png" width="250"/>
-    <img src="https://user-images.githubusercontent.com/12429051/30367444-e859ecc8-988b-11e7-84e2-2cf541cfc978.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/12429051/30367444-e859ecc8-988b-11e7-84e2-2cf541cfc978.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/12429051/32408143-177bcd90-c1b9-11e7-9c47-c074573b0cc1.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/12429051/32408142-17525a96-c1b9-11e7-8076-208c617c992c.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/12429051/32408141-1726d128-c1b9-11e7-97df-56de4a2e3689.png" width="250"/>
 </p>
 
 <b><h1>Usage</h1></b>
@@ -32,7 +35,7 @@ Add this to your app build.gradle:
 
 ```java
 dependencies {
-    compile 'com.github.vikramezhil:DroidSpeech:v2.0.1’
+    compile 'com.github.vikramezhil:DroidSpeech:v2.0.2’
 }
 ```
 
@@ -55,7 +58,7 @@ Add the following to the <dependencies> section of your pom.xml:
 <dependency>
     <groupId>com.github.vikramezhil</groupId>
     <artifactId>DroidSpeech</artifactId>
-    <version>v2.0.1</version>
+    <version>v2.0.2</version>
 </dependency>
 ```
 
