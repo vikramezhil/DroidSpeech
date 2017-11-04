@@ -110,10 +110,10 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
         Log.i(TAG, "Current speech language = " + currentSpeechLanguage);
         Log.i(TAG, "Supported speech languages = " + supportedSpeechLanguages.toString());
 
-        if(supportedSpeechLanguages.contains("fr-FR"))
+        if(supportedSpeechLanguages.contains("ta-IN"))
         {
             // Setting the droid speech preferred language as tamil if found
-            droidSpeech.setPreferredLanguage("fr-FR");
+            droidSpeech.setPreferredLanguage("ta-IN");
         }
     }
 
