@@ -464,9 +464,8 @@ public class DroidSpeech
     /**
      * Sets the offline speech recognition status
      *
-     * NOTE: 1. Default is false
-     *       2. SDK version should be API 23 and above
-     *       3. Speech package installed needs to be checked beforehand independently
+     * NOTE: Default is false, sdk version should be API 23 and above, speech package
+     * installed needs to be checked beforehand independently
      *
      * @param offlineSpeechRecognition The offline speech recognition status
      */
