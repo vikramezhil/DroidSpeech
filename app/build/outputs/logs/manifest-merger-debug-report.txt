@@ -17,7 +17,7 @@ ADDED from /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/
 		INJECTED from /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/src/main/AndroidManifest.xml:6:5-18:19
-MERGED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:14:5-18:19
+MERGED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:14:5-53
 	android:label
 		ADDED from /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/src/main/AndroidManifest.xml:8:9-41
 	android:roundIcon
@@ -57,9 +57,3 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:12:5-79
 	android:name
 		ADDED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:12:22-76
-receiver#com.vikramezhil.droidspeech.LanguageReceiver
-ADDED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:15:9-17:38
-	android:enabled
-		ADDED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:17:13-35
-	android:name
-		ADDED from [DroidSpeech:ds:unspecified] /Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/AndroidManifest.xml:16:13-72

@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil
- *
  * Droid Speech Language Receiver
+ *
+ * @author Vikram Ezhil
  */
 
-public class LanguageReceiver extends BroadcastReceiver
+class LanguageReceiver extends BroadcastReceiver
 {
     private OnLanguageDetailsListener onLanguageDetailsListener;
 

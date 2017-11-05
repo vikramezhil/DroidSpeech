@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="5dp"
+    android:background="#607D8B"
+    android:alpha="0.8"
     tools:context="com.vikramezhil.droidspeechexample.Activity_DroidSpeech">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +24,7 @@
             android:gravity="center"
             android:text="@string/final_speech_result"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
             android:textStyle="bold"/>
 
         <TextView
@@ -33,28 +34,29 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/no_data"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
     </LinearLayout>
 
-    <Button
+    <ImageView
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
         android:layout_gravity="center"
-        android:text="@string/start"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="@android:color/holo_green_light"
+        android:src="@drawable/btn_start"
+        android:contentDescription="@string/app_name"
         android:visibility="visible"/>
 
-    <Button
+    <ImageView
         android:id="@+id/stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
         android:layout_gravity="center"
-        android:text="@string/stop"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="@android:color/holo_orange_dark"
+        android:src="@drawable/btn_stop"
+        android:contentDescription="@string/app_name"
         android:visibility="gone"/>
 </LinearLayout>

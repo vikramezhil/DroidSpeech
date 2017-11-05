@@ -5,6 +5,8 @@
     <string name="ds_mic_permissions_required">Please provide microphone permissions</string>
     <string name="ds_unknown_error">Unknown error</string>
     <string name="ds_progress_layout_error">Unable to add speech progress view</string>
+    <string name="ds_confirm">Confirm</string>
+    <string name="ds_retry">Retry</string>
     <string-array name="droid_speech_errors">
         <!--ERROR_NETWORK_TIMEOUT = 1-->
         <!--ERROR_NETWORK = 2-->

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,13 +17,19 @@ import com.vikramezhil.droidspeech.OnDSPermissionsListener;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Droid Speech Example Activity
+ *
+ * @author Vikram Ezhil
+ */
+
 public class Activity_DroidSpeech extends Activity implements OnClickListener, OnDSListener, OnDSPermissionsListener
 {
     public final String TAG = "Activity_DroidSpeech";
 
     private DroidSpeech droidSpeech;
     private TextView finalSpeechResult;
-    private Button start, stop;
+    private ImageView start, stop;
 
     // MARK: Activity Methods
 
@@ -32,16 +38,19 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
     {
         super.onCreate(savedInstanceState);
 
-        // Setting the layout
+        // Setting the layout;[.
         setContentView(R.layout.activity_droid_speech);
-
-        finalSpeechResult = findViewById(R.id.finalSpeechResult);
 
         // Initializing the droid speech and setting the listener
         droidSpeech = new DroidSpeech(this, getFragmentManager());
         droidSpeech.setOnDroidSpeechListener(this);
         droidSpeech.setShowRecognitionProgressView(true);
+        droidSpeech.setOneStepResultVerify(true);
         droidSpeech.setRecognitionProgressMsgColor(Color.WHITE);
+        droidSpeech.setOneStepVerifyConfirmTextColor(Color.WHITE);
+        droidSpeech.setOneStepVerifyRetryTextColor(Color.WHITE);
+
+        finalSpeechResult = findViewById(R.id.finalSpeechResult);
 
         start = findViewById(R.id.start);
         start.setOnClickListener(this);
@@ -114,6 +123,10 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
         {
             // Setting the droid speech preferred language as tamil if found
             droidSpeech.setPreferredLanguage("ta-IN");
+
+            // Setting the confirm and retry text in tamil
+            droidSpeech.setOneStepVerifyConfirmText("உறுதிப்படுத்த");
+            droidSpeech.setOneStepVerifyRetryText("மீண்டும் முயற்சிக்க");
         }
     }
 

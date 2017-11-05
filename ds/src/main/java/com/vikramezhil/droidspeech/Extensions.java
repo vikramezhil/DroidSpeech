@@ -6,9 +6,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Created by Vikram Ezhil on 29/07/17
- *
  * Droid Speech Extensions
+ *
+ * @author Vikram Ezhil
  */
 
 class Extensions

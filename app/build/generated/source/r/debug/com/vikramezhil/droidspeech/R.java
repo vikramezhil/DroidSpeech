@@ -8,24 +8,29 @@ package com.vikramezhil.droidspeech;
 
 public final class R {
     public static final class array {
-        public static final int droid_speech_errors = 0x7f040000;
+        public static final int droid_speech_errors = 0x7f050000;
     }
     public static final class dimen {
-        public static final int progressMsgMargin = 0x7f060000;
+        public static final int progressMsgMargin = 0x7f070000;
     }
     public static final class id {
-        public static final int recognitionProgressMsg = 0x7f080004;
-        public static final int recognitionProgressView = 0x7f080003;
+        public static final int confirm = 0x7f090006;
+        public static final int confirmLayout = 0x7f090005;
+        public static final int recognitionProgressMsg = 0x7f090004;
+        public static final int recognitionProgressView = 0x7f090003;
+        public static final int retry = 0x7f090007;
     }
     public static final class layout {
-        public static final int speech_progress_layout = 0x7f030001;
+        public static final int speech_progress_layout = 0x7f040001;
     }
     public static final class string {
-        public static final int app_name = 0x7f070000;
-        public static final int ds_internet_not_enabled = 0x7f070001;
-        public static final int ds_listening = 0x7f070002;
-        public static final int ds_mic_permissions_required = 0x7f070003;
-        public static final int ds_progress_layout_error = 0x7f070004;
-        public static final int ds_unknown_error = 0x7f070005;
+        public static final int app_name = 0x7f080000;
+        public static final int ds_confirm = 0x7f080001;
+        public static final int ds_internet_not_enabled = 0x7f080002;
+        public static final int ds_listening = 0x7f080003;
+        public static final int ds_mic_permissions_required = 0x7f080004;
+        public static final int ds_progress_layout_error = 0x7f080005;
+        public static final int ds_retry = 0x7f080006;
+        public static final int ds_unknown_error = 0x7f080007;
     }
 }

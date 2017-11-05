@@ -3,9 +3,9 @@ package com.vikramezhil.droidspeech;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil
- *
  * Droid Speech Language Details Listener
+ *
+ * @author Vikram Ezhil
  */
 
 interface OnLanguageDetailsListener

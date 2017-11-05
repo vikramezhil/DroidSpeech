@@ -6,9 +6,9 @@ import android.view.animation.DecelerateInterpolator;
 import java.util.Random;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * AnimatorBarRms
+ *
+ * @author Vikram Ezhil
  */
 
 class AnimatorBarRms implements OnBarParamsAnimListener

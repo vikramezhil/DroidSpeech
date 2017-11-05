@@ -8,9 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 
 /**
- * Created by Vikram Ezhil on 29/07/17
- *
  * Droid Speech Permissions - Non UI Fragment
+ *
+ * @author Vikram Ezhil
  */
 
 public class DroidSpeechPermissions extends Fragment

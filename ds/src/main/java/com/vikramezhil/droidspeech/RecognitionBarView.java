@@ -3,9 +3,9 @@ package com.vikramezhil.droidspeech;
 import android.graphics.RectF;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * Recognition Bar View
+ *
+ * @author Vikram Ezhil
  */
 
 class RecognitionBarView

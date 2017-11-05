@@ -6,17 +6,8 @@
         jar="/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.1"
-        sha1="04cd6a0dad784af048056cd6feaf1bbd76eca1bc">
-        <dex dex="/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/build/intermediates/pre-dexed/debug/classes_ee5f584984ea285ca9391947e69ea58414084f18.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/default/classes.jar"
-        jumboMode="false"
-        optimize="true"
         revision="26.0.2"
-        sha1="68127b2d6028053bb456828a22b5f1977167bc3b">
+        sha1="9f6ef50d059dae07b53a03cdaa07ba9312795db4">
         <dex dex="/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/app/build/intermediates/pre-dexed/debug/classes_ee5f584984ea285ca9391947e69ea58414084f18.jar" />
     </item>
 

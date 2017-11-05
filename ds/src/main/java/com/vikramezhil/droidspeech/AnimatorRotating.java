@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * AnimatorRotating
+ *
+ * @author Vikram Ezhil
  */
 
 class AnimatorRotating implements OnBarParamsAnimListener

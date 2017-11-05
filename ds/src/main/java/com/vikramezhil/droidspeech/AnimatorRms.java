@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * AnimatorRms
+ *
+ * @author Vikram Ezhil
  */
 
 class AnimatorRms implements OnBarParamsAnimListener

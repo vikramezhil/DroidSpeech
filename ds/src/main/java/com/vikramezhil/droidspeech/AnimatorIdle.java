@@ -3,9 +3,9 @@ package com.vikramezhil.droidspeech;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * AnimatorIdle
+ *
+ * @author Vikram Ezhil
  */
 
 class AnimatorIdle implements OnBarParamsAnimListener

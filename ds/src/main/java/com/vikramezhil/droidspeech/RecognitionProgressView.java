@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * Recognition Progress View
+ *
+ * @author Vikram Ezhil
  */
 
 class RecognitionProgressView extends View

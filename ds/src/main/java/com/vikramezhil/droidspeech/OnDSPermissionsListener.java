@@ -1,9 +1,9 @@
 package com.vikramezhil.droidspeech;
 
 /**
- * Created by Vikram Ezhil on 29/07/17
- *
  * Droid Speech Permissions Listener
+ *
+ * @author Vikram Ezhil
  */
 
 public interface OnDSPermissionsListener

@@ -66,8 +66,8 @@
                     "startLine": 24,
                     "startColumn": 4,
                     "startOffset": 882,
-                    "endColumn": 75,
-                    "endOffset": 953
+                    "endColumn": 46,
+                    "endOffset": 924
                 },
                 "from": {
                     "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
@@ -75,8 +75,8 @@
                         "startLine": 24,
                         "startColumn": 4,
                         "startOffset": 882,
-                        "endColumn": 75,
-                        "endOffset": 953
+                        "endColumn": 46,
+                        "endOffset": 924
                     }
                 }
             },
@@ -84,18 +84,18 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 958,
-                    "endColumn": 51,
-                    "endOffset": 1005
+                    "startOffset": 929,
+                    "endColumn": 75,
+                    "endOffset": 1000
                 },
                 "from": {
                     "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
-                        "startOffset": 958,
-                        "endColumn": 51,
-                        "endOffset": 1005
+                        "startOffset": 929,
+                        "endColumn": 75,
+                        "endOffset": 1000
                     }
                 }
             },
@@ -103,18 +103,18 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 1010,
-                    "endColumn": 93,
-                    "endOffset": 1099
+                    "startOffset": 1005,
+                    "endColumn": 51,
+                    "endOffset": 1052
                 },
                 "from": {
                     "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
-                        "startOffset": 1010,
-                        "endColumn": 93,
-                        "endOffset": 1099
+                        "startOffset": 1005,
+                        "endColumn": 51,
+                        "endOffset": 1052
                     }
                 }
             },
@@ -122,18 +122,18 @@
                 "to": {
                     "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 1104,
-                    "endColumn": 87,
-                    "endOffset": 1187
+                    "startOffset": 1057,
+                    "endColumn": 93,
+                    "endOffset": 1146
                 },
                 "from": {
                     "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
-                        "startOffset": 1104,
-                        "endColumn": 87,
-                        "endOffset": 1187
+                        "startOffset": 1057,
+                        "endColumn": 93,
+                        "endOffset": 1146
                     }
                 }
             },
@@ -141,18 +141,56 @@
                 "to": {
                     "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 1192,
-                    "endColumn": 58,
-                    "endOffset": 1246
+                    "startOffset": 1151,
+                    "endColumn": 87,
+                    "endOffset": 1234
                 },
                 "from": {
                     "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 1192,
+                        "startOffset": 1151,
+                        "endColumn": 87,
+                        "endOffset": 1234
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1239,
+                    "endColumn": 42,
+                    "endOffset": 1277
+                },
+                "from": {
+                    "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1239,
+                        "endColumn": 42,
+                        "endOffset": 1277
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1282,
+                    "endColumn": 58,
+                    "endOffset": 1336
+                },
+                "from": {
+                    "file": "/Users/vikram/Documents/Development/Libraries/Vikram/DroidSpeech/ds/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1282,
                         "endColumn": 58,
-                        "endOffset": 1246
+                        "endOffset": 1336
                     }
                 }
             }

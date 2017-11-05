@@ -1,9 +1,9 @@
 package com.vikramezhil.droidspeech;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * Bar Animation Listener
+ *
+ * @author Vikram Ezhil
  */
 
 interface OnBarParamsAnimListener

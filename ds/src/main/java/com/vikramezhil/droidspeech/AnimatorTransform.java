@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vikram Ezhil on 12/09/17
- *
  * AnimatorTransform
+ *
+ * @author Vikram Ezhil
  */
 
 class AnimatorTransform implements OnBarParamsAnimListener

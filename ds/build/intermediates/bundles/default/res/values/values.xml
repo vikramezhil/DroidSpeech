@@ -22,9 +22,11 @@
     </string-array>
     <dimen name="progressMsgMargin">10dp</dimen>
     <string name="app_name">DroidSpeech</string>
+    <string name="ds_confirm">Confirm</string>
     <string name="ds_internet_not_enabled">Internet is not enabled</string>
     <string name="ds_listening">Listening…</string>
     <string name="ds_mic_permissions_required">Please provide microphone permissions</string>
     <string name="ds_progress_layout_error">Unable to add speech progress view</string>
+    <string name="ds_retry">Retry</string>
     <string name="ds_unknown_error">Unknown error</string>
 </resources>
