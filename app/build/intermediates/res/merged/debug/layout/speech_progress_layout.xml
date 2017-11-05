@@ -34,8 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/ds_confirm"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textAllCaps="false"
-            android:maxLines="1"
+            android:maxLines="2"
             style="?android:attr/buttonBarButtonStyle"/>
 
         <Button
@@ -44,8 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/ds_retry"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textAllCaps="false"
-            android:maxLines="1"
+            android:maxLines="2"
             style="?android:attr/buttonBarButtonStyle"/>
     </LinearLayout>
 </LinearLayout>
