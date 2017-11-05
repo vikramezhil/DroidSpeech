@@ -9,12 +9,10 @@ Google's default speech recognition library doesn't allow to continuously listen
 <b>Droid Speech</b> aims to close this gap and provide unparalleled optimisation of continuous speech recognition without any of the above said issues. It is developed keeping in mind all the loopholes which needs to be blocked to have the speech recognition run seamlessly in an android device.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/12429051/30366818-00ed03e4-988a-11e7-91b5-5f3b3f9ecf45.png" width="250"/>
-  <img src="https://user-images.githubusercontent.com/12429051/30367309-8ce75cfe-988b-11e7-8f7d-1802b2e62dd7.png" width="250"/>
-  <img src="https://user-images.githubusercontent.com/12429051/30367444-e859ecc8-988b-11e7-84e2-2cf541cfc978.png" width="250"/>
-  <img src="https://user-images.githubusercontent.com/12429051/32408143-177bcd90-c1b9-11e7-9c47-c074573b0cc1.png" width="250"/>
-  <img src="https://user-images.githubusercontent.com/12429051/32408142-17525a96-c1b9-11e7-8076-208c617c992c.png" width="250"/>
-  <img src="https://user-images.githubusercontent.com/12429051/32408141-1726d128-c1b9-11e7-97df-56de4a2e3689.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/12429051/32413548-67f1805a-c239-11e7-8232-dd0a24e5c491.png" width="200"/>
+    <img src="https://user-images.githubusercontent.com/12429051/32413549-68210c58-c239-11e7-96ec-62be7a944eba.png" width="200"/>
+  <img src="https://user-images.githubusercontent.com/12429051/32413547-67beb4d6-c239-11e7-861f-a3808bd2c1e7.png" width="200"/>
+  <img src="https://user-images.githubusercontent.com/12429051/32413550-684f8b46-c239-11e7-89d5-b4ab4905b369.png" width="200"/>
 </p>
 
 <b><h1>Usage</h1></b>
