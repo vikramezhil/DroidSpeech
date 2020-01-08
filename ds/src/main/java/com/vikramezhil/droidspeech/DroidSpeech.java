@@ -100,8 +100,14 @@ public class DroidSpeech
      */
     private void startLanguageReceiver()
     {
-        Intent languageDetailsIntent =  RecognizerIntent.getVoiceDetailsIntent(context);
-        languageDetailsIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        Intent languageDetailsIntent;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            languageDetailsIntent = new Intent(RecognizerIntent.ACTION_GET_LANGUAGE_DETAILS);
+            languageDetailsIntent.setPackage("com.google.android.googlequicksearchbox");
+        }else{
+            languageDetailsIntent =  RecognizerIntent.getVoiceDetailsIntent(context);
+            languageDetailsIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        }
         LanguageReceiver languageReceiver = new LanguageReceiver();
         languageReceiver.setOnLanguageDetailsListener(new OnLanguageDetailsListener() {
             @Override
