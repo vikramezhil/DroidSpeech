@@ -1,4 +1,9 @@
+### IMPORTANT - This library is now obsolete, there is a 2.0 version written in kotlin. 
+
+### Please migrate to [DroidSpeech2.0](https://github.com/vikramezhil/DroidSpeech2.0)
+
 # DroidSpeech
+
 Android library for continuous speech recognition with localizations.
 
 <b>Supports from Android SDK version 16 and above</b>.
